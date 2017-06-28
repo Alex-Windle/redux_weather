@@ -25,7 +25,7 @@ class App extends Component {
         <Navbar>
           <Navbar.Header>
             <Navbar.Brand>
-              React Simple Weather App
+              Redux Simple Weather App
             </Navbar.Brand>
           </Navbar.Header>
         </Navbar>
