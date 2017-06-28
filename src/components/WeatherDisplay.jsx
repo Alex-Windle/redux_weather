@@ -5,9 +5,13 @@
 //
 // This component holds its own state, which saves weather data. So, it should be a container.
 //
-// -----> CONNECT TO REDUX
-//   (1) Import connect function from 'react-redux';
-//
+// -----> HOW TO CONNECT TO REDUX
+//   (1) Import connect helper function. This hooks up your React component to the Redux store. 
+//   (2) Pass the component, WeatherDisplay, into the connect function (with additional functions 
+//       that you may plan to use, such as mapStateToProps here.) 
+//   (3) Bring in the store data! Do this by calling the function mapStateToProps with "selectPlace", your store key.
+//   (4) Show your data! Display the props using this.props.selectPlace.payload. 
+//   (5) That was awesome! 
 
 // Module imports 
 import React, { Component } from 'react';
@@ -16,16 +20,15 @@ import { connect } from 'react-redux';
 
 class WeatherDisplay extends Component {
   render() {
+    console.log("mapStateToProps, payload: ", this.props.selectPlace.payload);
     return (
       <div></div>
     );
   }
 }
 
-// This function connects to state, finds the key: selectPlace and imports it into 
-// this file as a PROP (??? Is this correct)
-function mapStateToProps({ appReducer }) {
-  return { appReducer }; 
+function mapStateToProps({ selectPlace }) {
+  return { selectPlace }; 
 }
 
 export default connect(mapStateToProps)(WeatherDisplay)
