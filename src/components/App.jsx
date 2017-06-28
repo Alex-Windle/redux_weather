@@ -8,15 +8,18 @@ import PLACES from '../data/places';
 
 import WeatherDisplay from './WeatherDisplay'; 
 
+// Action imports
+import { selectPlace } from '../actions/index'; 
+
 class App extends Component {
   constructor(props) {
     super(props);
 
-    this.state = { activePlace: 0 }
+    // this.state = { activePlace: 0 }
   }
 
   render() {
-    const activePlace = this.state.activePlace;
+    // const activePlace = this.state.activePlace;
     return (
       <div>
         <Navbar>
@@ -33,9 +36,8 @@ class App extends Component {
               <Nav
                 bsStyle="pills"
                 stacked
-                activeKey={activePlace}
-                onSelect={index => {
-                  this.setState({ activePlace: index });
+                onSelect={(index) => {
+                  selectPlace(index)
                 }}
               >
                 {PLACES.map((place, index) => (
@@ -44,7 +46,7 @@ class App extends Component {
               </Nav>
             </Col>
             <Col md={8} sm={8}>
-              <WeatherDisplay key={activePlace} zip={PLACES[activePlace].zip} />
+              <WeatherDisplay />
             </Col>
           </Row>
         </Grid>
