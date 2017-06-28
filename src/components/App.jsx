@@ -36,9 +36,11 @@ class App extends Component {
               <Nav
                 bsStyle="pills"
                 stacked
-                onSelect={(index) => {
-                  this.props.selectPlace(index)
-                }}
+                onSelect={
+                  (index) => {
+                    this.props.selectPlace(index)
+                  }
+                }
               >
                 {PLACES.map((place, index) => (
                   <NavItem key={index} eventKey={index}>{place.name}</NavItem>
@@ -62,7 +64,3 @@ function mapDispatchToProps(dispatch) {
 
 // This function connects the COMPONENT to REDUX (???)
 export default connect(null, mapDispatchToProps)(App);
-
-
-
-

@@ -1,9 +1,9 @@
 import { combineReducers } from 'redux';
 
-import AppReducer from './app_reducer.js'; 
+import SelectPlaceReducer from './selectPlace_reducer.js'; 
 
 const rootReducer = combineReducers({
-  appReducer: AppReducer,
+  selectPlace: SelectPlaceReducer,
 });
 
 export default rootReducer;
