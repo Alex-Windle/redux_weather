@@ -14,3 +14,6 @@ export function selectPlace(index) {
 		payload: index,
 	}
 }
+
+// Now, what's next? This action must be passed to a REDUCER. 
+// The REDUCER is necessary to update the store. 
