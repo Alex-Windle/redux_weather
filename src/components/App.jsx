@@ -20,6 +20,7 @@ import { selectPlace } from '../actions/index';
 
 class App extends Component {
   render() {
+    console.log("App -- mapStateToProps, this.props.newNamedKey: ", this.props.newNamedKey);
     return (
       <div>
         <Navbar>
@@ -48,7 +49,7 @@ class App extends Component {
               </Nav>
             </Col>
             <Col md={8} sm={8}>
-              <WeatherDisplay />
+              <WeatherDisplay/>
             </Col>
           </Row>
         </Grid>
@@ -62,5 +63,9 @@ function mapDispatchToProps(dispatch) {
   return bindActionCreators({ selectPlace }, dispatch);
 }
 
+function mapStateToProps({ selectPlace }) {
+  return { newNamedKey: selectPlace }; 
+}
+
 // This function connects the COMPONENT to REDUX (???)
-export default connect(null, mapDispatchToProps)(App);
+export default connect(mapStateToProps, mapDispatchToProps)(App);

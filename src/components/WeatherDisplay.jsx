@@ -20,7 +20,7 @@ import { connect } from 'react-redux';
 
 class WeatherDisplay extends Component {
   render() {
-    console.log("mapStateToProps, payload: ", this.props.selectPlace.payload);
+    console.log("WeatherDisplay - mapStateToProps, this.props.selectPlace: ", this.props.selectPlace);
     return (
       <div></div>
     );
