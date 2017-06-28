@@ -7,8 +7,7 @@
 export const SELECT_PLACE = 'SELECT_PLACE'; 
 
 export function selectPlace(index) {
-	console.log("fire action: selectPlace...");
-	console.log("index: ", index);
+	console.log("selectPlace action fires, payload: ", index);
 	return {
 		type: SELECT_PLACE,
 		payload: index,

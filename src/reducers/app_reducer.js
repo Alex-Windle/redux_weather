@@ -17,21 +17,16 @@
 // All actions are sent to all reducers as a convention of Redux. 
 // So, make a switch statement to match by ACTION TYPE. 
 
-
-import SELECT_PLACE from '../actions/index'; 
-
-export default function(state, action) {
-	
-	console.log("Reducer fires... ");
-
-	switch(action.type) {
+export default function(state = {}, action) {
+	const payload = action.payload;
+	switch (action.type) {
 		case 'SELECT_PLACE':
-			console.log("SELECT_PLACE action payload: ", action.payload);
+			console.log("SELECT_PLACE reducer fires, payload: ", payload);
 			return {
 				...state,
-				action.payload
+				payload,
 			}; 
 		default: 
-			return state;
+			return state; 
 	}
 }

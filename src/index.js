@@ -1,8 +1,15 @@
+
 import React from 'react';
 import ReactDOM from 'react-dom';
+
 import App from './components/App';
 import registerServiceWorker from './registerServiceWorker';
 import './index.css';
+
+// ***********************************  NEED TO UNDERSTAND.  **********************
+import { Provider } from 'react-redux';
+import { createStore } from 'redux';
+import reducers from './reducers/index';
 
 // This React application comprises two components, App and WeatherDisplay.
 
@@ -34,8 +41,10 @@ import './index.css';
 //
 
 ReactDOM.render(
-	<App />,
-	document.getElementById('root')
+	<Provider store={createStore(reducers)}>
+		<App />
+	</Provider> 
+	, document.getElementById('root')
 );
 
 registerServiceWorker();

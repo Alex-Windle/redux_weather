@@ -1,25 +1,25 @@
+// Module imports
 import React, { Component } from 'react';
 import '../App.css';
 import 'bootstrap/dist/css/bootstrap.css';
 import { Navbar, NavItem, Nav, Grid, Row, Col } from "react-bootstrap";
 import "bootswatch/flatly/bootstrap.css";
 
-import PLACES from '../data/places'; 
+// Custom data imports
+import PLACES from '../data/places';
 
+// Component imports 
 import WeatherDisplay from './WeatherDisplay'; 
+
+// Redux import
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux'; 
 
 // Action imports
 import { selectPlace } from '../actions/index'; 
 
 class App extends Component {
-  // constructor(props) {
-  //   super(props);
-
-  //   this.state = { activePlace: 0 }
-  // }
-
   render() {
-    // const activePlace = this.state.activePlace;
     return (
       <div>
         <Navbar>
@@ -37,7 +37,7 @@ class App extends Component {
                 bsStyle="pills"
                 stacked
                 onSelect={(index) => {
-                  selectPlace(index)
+                  this.props.selectPlace(index)
                 }}
               >
                 {PLACES.map((place, index) => (
@@ -55,4 +55,14 @@ class App extends Component {
   }
 }
 
-export default App;
+// This function binds ACTIONS to REDUCERS.
+function mapDispatchToProps(dispatch) {
+  return bindActionCreators({ selectPlace }, dispatch);
+}
+
+// This function connects the COMPONENT to REDUX (???)
+export default connect(null, mapDispatchToProps)(App);
+
+
+
+
