@@ -4,7 +4,7 @@
 // 
 // Let's build an ACTION CREATOR for APP... 
 
-const SELECT_PLACE = 'SELECT_PLACE'; 
+export const SELECT_PLACE = 'SELECT_PLACE'; 
 
 export function selectPlace(index) {
 	console.log("fire action: selectPlace...");

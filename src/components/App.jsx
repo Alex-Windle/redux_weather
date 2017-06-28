@@ -12,11 +12,11 @@ import WeatherDisplay from './WeatherDisplay';
 import { selectPlace } from '../actions/index'; 
 
 class App extends Component {
-  constructor(props) {
-    super(props);
+  // constructor(props) {
+  //   super(props);
 
-    // this.state = { activePlace: 0 }
-  }
+  //   this.state = { activePlace: 0 }
+  // }
 
   render() {
     // const activePlace = this.state.activePlace;
