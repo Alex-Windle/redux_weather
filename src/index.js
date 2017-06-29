@@ -41,7 +41,7 @@ import reducers from './reducers/index';
 //
 
 ReactDOM.render(
-	<Provider store={createStore(reducers, { selectPlace: 3 })}>
+	<Provider store={createStore(reducers, { selectPlace: {payload: 3} })}>
 		<App />
 	</Provider> 
 	, document.getElementById('root')

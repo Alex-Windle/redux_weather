@@ -20,8 +20,8 @@ import { selectPlace } from '../actions/index';
 
 class App extends Component {
   render() {
-    console.log("App -- mapStateToProps, this.props.newNamedKey: ", this.props.newNamedKey);
-    const newNamedKey = this.props.newNamedKey;
+    console.log("App -- mapStateToProps, this.props.newNamedKey: ", this.props.newNamedKey.payload);
+    const newNamedKey = this.props.newNamedKey.payload;
     return (
       <div>
         <Navbar>
