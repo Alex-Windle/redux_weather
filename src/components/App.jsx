@@ -20,8 +20,8 @@ import { selectPlace } from '../actions/index';
 
 class App extends Component {
   render() {
-    console.log("App -- mapStateToProps, this.props.newNamedKey: ", this.props.newNamedKey);
-    const newNamedKey = this.props.newNamedKey.payload; 
+    // console.log("App -- mapStateToProps, this.props.newNamedKey: ", this.props.newNamedKey);
+    const newNamedKey = this.props.newNamedKey.payload;
     return (
       <div>
         <Navbar>
@@ -50,7 +50,7 @@ class App extends Component {
               </Nav>
             </Col>
             <Col md={8} sm={8}>
-              <WeatherDisplay key={newNamedKey} zip={PLACES[newNamedKey].zip} />
+              <WeatherDisplay  />
             </Col>
           </Row>
         </Grid>
