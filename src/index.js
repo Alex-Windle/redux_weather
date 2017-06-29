@@ -12,7 +12,7 @@ import { createStore } from 'redux';
 import reducers from './reducers/index';
 
 // This React application comprises two components, App and WeatherDisplay.
-
+//
 // App is the parent component that brings in the data set, PLACES. 
 //
 // 			const PLACES = [
@@ -25,7 +25,7 @@ import reducers from './reducers/index';
 // App maintains its own STATE, which is the current PLACE on display. 
 // Users click a new place, which updates STATE. 
 // App passes down PROPS to WeatherDisplay, based on its STATE.
-
+//
 // WeatherDisplay is the child component, that only displays what App passes down to it.
 //
 // On render, WD returns "Loading..."

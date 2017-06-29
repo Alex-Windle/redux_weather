@@ -16,19 +16,19 @@
 // Module imports 
 import React, { Component } from 'react';
 import 'bootstrap/dist/css/bootstrap.css';
-import { connect } from 'react-redux';  
+// import { connect } from 'react-redux';  
 
-class WeatherDisplay extends Component {
+export default class WeatherDisplay extends Component {
   render() {
-    console.log("WeatherDisplay - mapStateToProps, this.props.selectPlace: ", this.props.selectPlace, "New key: ", this.props);
+    console.log("WeatherDisplay - mapStateToProps, this.props.zip: ", this.props.zip);
     return (
       <div></div>
     );
   }
 }
 
-function mapStateToProps({ selectPlace }) {
-  return { selectPlace }; 
-}
+// function mapStateToProps({ selectPlace }) {
+//   return { selectPlace }; 
+// }
 
-export default connect(mapStateToProps)(WeatherDisplay)
+// export default connect(mapStateToProps)(WeatherDisplay)
