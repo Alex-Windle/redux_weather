@@ -41,7 +41,14 @@ import reducers from './reducers/index';
 //
 
 ReactDOM.render(
-	<Provider store={createStore(reducers, { place: {payload: 3} })}>
+	<Provider store={
+		createStore(
+			reducers, 
+			{ place: {payload: 3} }, 
+			window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__(),
+			)
+		}
+	>
 		<App />
 	</Provider> 
 	, document.getElementById('root')
