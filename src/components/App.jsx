@@ -65,7 +65,7 @@ class App extends Component {
 
 const mapStateToProps = state => ({
   place: state.place,
-})
+}); 
 
 const mapDispatchToProps = () => ({
   performSelectPlace,
