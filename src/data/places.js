@@ -1,7 +1,7 @@
 const PLACES = [
-  { name: "Palo Alto", zip: "94303" },
-  { name: "San Jose", zip: "94088" },
-  { name: "Santa Cruz", zip: "95062" },
+  { name: "Marietta", zip: "30067" },
+  { name: "Port Royal", zip: "29902" },
+  { name: "Bronx", zip: "10453" },
   { name: "Honolulu", zip: "96803" }
 ];
 
