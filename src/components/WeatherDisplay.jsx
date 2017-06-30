@@ -26,13 +26,15 @@ class WeatherDisplay extends Component {
   // http://openweathermap.org/img/w/10d.png
 
   componentDidMount() {
+  	// console.log("pass zip: ", this.props.zip)
   	const { zip } = this.props; 
    	const url = `http://api.openweathermap.org/data/2.5/weather?q=${zip}&appid=b1b35bba8b434a28a0be2a3e1071ae5b&units=imperial`; 
   
   	fetch(url)
   		.then(resp => resp.json())
   		.then(resp => {
-  			this.props.callWeatherData(resp); 
+  			console.log("pass into weather data", resp.name);
+  			this.props.callWeatherData(resp.name); 
   		})
   }
 

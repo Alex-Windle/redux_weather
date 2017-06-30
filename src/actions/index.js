@@ -12,10 +12,13 @@ export const performSelectPlace = (num) => ({
 	payload: num, 
 });
 
-export const callWeatherData = (data) => ({
-	type: WEATHER_DATA,
-	payload: {...data},
-});
+export const callWeatherData = (data) => {
+	console.log('action creator', data);
+	return {
+		type: WEATHER_DATA,
+		payload: data,
+	}
+};
 
 // Now, what's next? This action must be passed to a REDUCER. 
 // The REDUCER is necessary to update the store. 
