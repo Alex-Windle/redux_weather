@@ -6,20 +6,13 @@
 
 export const SELECT_PLACE = 'SELECT_PLACE'; 
 
-const selectPlaceAction = (howdy) => ({
-	type: SELECT_PLACE,
-	payload: howdy,
-})
-
 export const performSelectPlace = (num) => {
 	console.log("fire performSelectPlace function with", num);
 	
-	const newAction = selectPlaceAction(num); 
-	console.log(newAction);
-	
-	(dispatch) => {
-		dispatch(newAction);
-	}
+	(dispatch) => ({
+		type: SELECT_PLACE,
+		payload: num,
+	}); 
 }
 
 // Now, what's next? This action must be passed to a REDUCER. 
