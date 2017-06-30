@@ -25,6 +25,7 @@ class App extends Component {
   }
 
   render() {
+    const place = this.props.place.payload;
     return (
       <div>
         <Navbar>
@@ -53,7 +54,7 @@ class App extends Component {
               </Nav>
             </Col>
             <Col md={8} sm={8}>
-              <WeatherDisplay />
+              <WeatherDisplay zip={PLACES[place].zip} key={place} />
             </Col>
           </Row>
         </Grid>

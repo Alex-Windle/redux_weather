@@ -21,12 +21,9 @@
 import { SELECT_PLACE } from '../actions/index'; 
 
 export default function(state = {}, action) {
-	console.log("...reducer fires!");
-
 	const payload = action.payload;
 	switch (action.type) {
 		case SELECT_PLACE:
-			console.log("SELECT_PLACE reducer fires, payload: ", payload);
 			return {
 				...state,
 				payload,

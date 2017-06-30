@@ -16,13 +16,12 @@
 // Module imports 
 import React, { Component } from 'react';
 import 'bootstrap/dist/css/bootstrap.css';
-// import { connect } from 'react-redux';  
 
 export default class WeatherDisplay extends Component {
   render() {
-    // console.log("WeatherDisplay - mapStateToProps, this.props.zip: ", this.props.zip);
+    const zip = this.props.zip;  
     return (
-      <div></div>
+      <div>WeatherDisplay for ZIP code {zip}</div>
     );
   }
 }
