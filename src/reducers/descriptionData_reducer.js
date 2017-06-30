@@ -8,7 +8,6 @@ const initialState = {
 
 export default function(state = initialState, action) {
 	const payload = action.payload; 
-	console.log(action);
 	switch(action.type) {
 		case DESCRIPTION: 
 			return {
