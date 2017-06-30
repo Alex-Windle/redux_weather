@@ -6,6 +6,7 @@
 
 export const SELECT_PLACE = 'SELECT_PLACE'; 
 export const CITY = 'CITY'; 
+export const DESCRIPTION = 'DESCRIPTION'; 
 
 export const performSelectPlace = (num) => ({
 	type: SELECT_PLACE,
@@ -18,6 +19,15 @@ export const callCity = (data) => {
 		payload: data,
 	}
 };
+
+export const callDescription = (data) => {
+	console.log(data);
+	return {
+		type: DESCRIPTION,
+		payload: data,
+	}
+};
+
 
 // Now, what's next? This action must be passed to a REDUCER. 
 // The REDUCER is necessary to update the store. 

@@ -11,7 +11,8 @@ import 'bootstrap/dist/css/bootstrap.css';
 import { connect } from 'react-redux';
 
 // Action imports
-import { callCity } from '../actions/index'; 
+import { callCity } from '../actions/index';
+import { callDescription } from '../actions/index';  
 
 class WeatherDisplay extends Component {
 
@@ -23,15 +24,17 @@ class WeatherDisplay extends Component {
   		.then(resp => resp.json())
   		.then(resp => {
   			this.props.callCity(resp.name); 
+        this.props.callDescription(resp.weather[0].description);
   		})
   }
 
   render() { 
   	const city = this.props.city.payload;
+    const description = this.props.description.payload;
   	return (
   		<div>
         <br />
-  			Weather for {city}
+  			Weather for <strong>{city}</strong> today is <strong>{description}</strong>.
   		</div>
   	);
   }
@@ -39,10 +42,12 @@ class WeatherDisplay extends Component {
 
 const mapStateToProps = state => ({
 	city: state.city,
+  description: state.description,
 })
 
 const mapDispatchToProps = () => ({
 	callCity,
+  callDescription,
 })
 
 export default connect(mapStateToProps, mapDispatchToProps())(WeatherDisplay); 
