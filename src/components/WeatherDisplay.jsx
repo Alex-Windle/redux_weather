@@ -4,7 +4,6 @@
 // First question: Should this be a container (connected to Redux) or component (not connected)?
 //
 // This component holds its own state, which saves weather data. So, it should be a container.
-//
 
 // Module imports 
 import React, { Component } from 'react';
@@ -12,7 +11,7 @@ import 'bootstrap/dist/css/bootstrap.css';
 import { connect } from 'react-redux';
 
 // Action imports
-import { callWeatherData } from '../actions/index'; 
+import { callCity } from '../actions/index'; 
 
 class WeatherDisplay extends Component {
 
@@ -23,18 +22,15 @@ class WeatherDisplay extends Component {
   	fetch(url)
   		.then(resp => resp.json())
   		.then(resp => {
-  			console.log("pass into weather data", resp.name);
-  			this.props.callWeatherData(resp.name); 
+  			this.props.callCity(resp.name); 
   		})
   }
 
   render() { 
-  	const city = this.props.weather.payload;
-  	console.log(this.props.weather);
-  	// if (!city) return <div>Loading...</div>; 
-
+  	const city = this.props.city.payload;
   	return (
   		<div>
+        <br />
   			Weather for {city}
   		</div>
   	);
@@ -42,11 +38,11 @@ class WeatherDisplay extends Component {
 }
 
 const mapStateToProps = state => ({
-	weather: state.weather,
+	city: state.city,
 })
 
 const mapDispatchToProps = () => ({
-	callWeatherData,
+	callCity,
 })
 
 export default connect(mapStateToProps, mapDispatchToProps())(WeatherDisplay); 

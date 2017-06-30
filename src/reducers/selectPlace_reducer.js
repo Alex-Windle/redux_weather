@@ -17,13 +17,11 @@
 // All actions are sent to all reducers as a convention of Redux. 
 // So, make a switch statement to match by ACTION TYPE. 
 
-// eslint-disable-next-line
 import { SELECT_PLACE } from '../actions/index'; 
 
 const initialState = {
 	payload: 3,
 };
-
 
 export default function(state = initialState, action) {
 	const payload = action.payload;

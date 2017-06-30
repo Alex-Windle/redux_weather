@@ -5,17 +5,16 @@
 // Let's build an ACTION CREATOR for APP... 
 
 export const SELECT_PLACE = 'SELECT_PLACE'; 
-export const WEATHER_DATA = 'WEATHER_DATA'; 
+export const CITY = 'CITY'; 
 
 export const performSelectPlace = (num) => ({
 	type: SELECT_PLACE,
 	payload: num, 
 });
 
-export const callWeatherData = (data) => {
-	console.log('action creator', data);
+export const callCity = (data) => {
 	return {
-		type: WEATHER_DATA,
+		type: CITY,
 		payload: data,
 	}
 };
