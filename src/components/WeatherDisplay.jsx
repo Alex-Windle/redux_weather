@@ -20,7 +20,7 @@ import 'bootstrap/dist/css/bootstrap.css';
 
 export default class WeatherDisplay extends Component {
   render() {
-    console.log("WeatherDisplay - mapStateToProps, this.props.zip: ", this.props.zip);
+    // console.log("WeatherDisplay - mapStateToProps, this.props.zip: ", this.props.zip);
     return (
       <div></div>
     );

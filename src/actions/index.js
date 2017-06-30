@@ -6,11 +6,19 @@
 
 export const SELECT_PLACE = 'SELECT_PLACE'; 
 
-export function selectPlace(index) {
-	console.log("selectPlace action fires, payload: ", index);
-	return {
-		type: SELECT_PLACE,
-		payload: index,
+const selectPlaceAction = (howdy) => ({
+	type: SELECT_PLACE,
+	payload: howdy,
+})
+
+export const performSelectPlace = (num) => {
+	console.log("fire performSelectPlace function with", num);
+	
+	const newAction = selectPlaceAction(num); 
+	console.log(newAction);
+	
+	(dispatch) => {
+		dispatch(newAction);
 	}
 }
 

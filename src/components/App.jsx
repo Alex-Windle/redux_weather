@@ -13,15 +13,22 @@ import WeatherDisplay from './WeatherDisplay';
 
 // Redux import
 import { connect } from 'react-redux';
-import { bindActionCreators } from 'redux'; 
 
 // Action imports
-import { selectPlace } from '../actions/index'; 
+import { performSelectPlace } from '../actions/index'; 
 
 class App extends Component {
+  constructor(props) {
+    super(props);
+
+    this.selectCity = (index) => {
+      console.log("fire selectCity function with index", index);
+      this.props.performSelectPlace(index);
+    }
+  }
+
   render() {
-    console.log("App -- mapStateToProps, this.props.newNamedKey: ", this.props.newNamedKey.payload);
-    const newNamedKey = this.props.newNamedKey.payload;
+    console.log("App props: ", this.props);
     return (
       <div>
         <Navbar>
@@ -40,7 +47,7 @@ class App extends Component {
                 stacked
                 onSelect={
                   (index) => {
-                    this.props.selectPlace(index)
+                    this.selectCity(index);
                   }
                 }
               >
@@ -50,7 +57,7 @@ class App extends Component {
               </Nav>
             </Col>
             <Col md={8} sm={8}>
-              <WeatherDisplay zip={PLACES[newNamedKey].zip} />
+              <WeatherDisplay />
             </Col>
           </Row>
         </Grid>
@@ -59,14 +66,14 @@ class App extends Component {
   }
 }
 
-// This function binds ACTIONS to REDUCERS.
-function mapDispatchToProps(dispatch) {
-  return bindActionCreators({ selectPlace }, dispatch);
-}
+const mapStateToProps = state => ({
+  place: state.place,
+})
 
-function mapStateToProps({ selectPlace }) {
-  return { newNamedKey: selectPlace }; 
-}
+// This function binds ACTIONS to REDUCERS.
+const mapDispatchToProps = () => ({
+  performSelectPlace,
+});
 
 // This function connects the COMPONENT to REDUX (???)
 export default connect(mapStateToProps, mapDispatchToProps)(App);
