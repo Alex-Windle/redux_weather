@@ -8,8 +8,7 @@ import './index.css';
 
 // ***********************************  NEED TO UNDERSTAND.  **********************
 import { Provider } from 'react-redux';
-import { createStore } from 'redux';
-import reducers from './reducers/index';
+import store from './store/createStore';
 
 // This React application comprises two components, App and WeatherDisplay.
 //
@@ -41,14 +40,7 @@ import reducers from './reducers/index';
 //
 
 ReactDOM.render(
-	<Provider store={
-		createStore(
-			reducers, 
-			{ place: {payload: 3} }, 
-			window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__(),
-			)
-		}
-	>
+	<Provider store={store}>
 		<App />
 	</Provider> 
 	, document.getElementById('root')

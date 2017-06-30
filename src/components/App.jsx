@@ -76,4 +76,4 @@ const mapDispatchToProps = () => ({
 });
 
 // This function connects the COMPONENT to REDUX (???)
-export default connect(mapStateToProps, mapDispatchToProps)(App);
+export default connect(mapStateToProps, mapDispatchToProps())(App);

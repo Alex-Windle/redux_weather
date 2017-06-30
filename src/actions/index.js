@@ -6,14 +6,10 @@
 
 export const SELECT_PLACE = 'SELECT_PLACE'; 
 
-export const performSelectPlace = (num) => {
-	console.log("fire performSelectPlace function with", num);
-	
-	(dispatch) => ({
-		type: SELECT_PLACE,
-		payload: num,
-	}); 
-}
+export const performSelectPlace = (num) => ({
+	type: SELECT_PLACE,
+	payload: num, 
+});
 
 // Now, what's next? This action must be passed to a REDUCER. 
 // The REDUCER is necessary to update the store. 

@@ -18,13 +18,14 @@
 // So, make a switch statement to match by ACTION TYPE. 
 
 // eslint-disable-next-line
-import SELECT_PLACE from '../actions/index'; 
+import { SELECT_PLACE } from '../actions/index'; 
 
 export default function(state = {}, action) {
-	console.log("heyooo", action.payload)
+	console.log("...reducer fires!");
+
 	const payload = action.payload;
 	switch (action.type) {
-		case 'SELECT_PLACE':
+		case SELECT_PLACE:
 			console.log("SELECT_PLACE reducer fires, payload: ", payload);
 			return {
 				...state,
