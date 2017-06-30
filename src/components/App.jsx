@@ -1,34 +1,30 @@
 // Module imports
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 import '../App.css';
 import 'bootstrap/dist/css/bootstrap.css';
 import { Navbar, NavItem, Nav, Grid, Row, Col } from "react-bootstrap";
 import "bootswatch/flatly/bootstrap.css";
 
-// Custom data imports
-import PLACES from '../data/places';
-
 // Component imports 
 import WeatherDisplay from './WeatherDisplay'; 
 
-// Redux import
-import { connect } from 'react-redux';
-
 // Action imports
 import { performSelectPlace } from '../actions/index'; 
+
+// Custom data imports
+import PLACES from '../data/places';
 
 class App extends Component {
   constructor(props) {
     super(props);
 
     this.selectCity = (index) => {
-      console.log("fire selectCity function with index", index);
       this.props.performSelectPlace(index);
     }
   }
 
   render() {
-    console.log("App props: ", this.props);
     return (
       <div>
         <Navbar>
@@ -70,10 +66,8 @@ const mapStateToProps = state => ({
   place: state.place,
 })
 
-// This function binds ACTIONS to REDUCERS.
 const mapDispatchToProps = () => ({
   performSelectPlace,
 });
 
-// This function connects the COMPONENT to REDUX (???)
 export default connect(mapStateToProps, mapDispatchToProps())(App);
