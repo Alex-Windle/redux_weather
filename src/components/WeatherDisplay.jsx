@@ -16,17 +16,7 @@ import { callWeatherData } from '../actions/index';
 
 class WeatherDisplay extends Component {
 
-  // Fetch weather data from this url : 
-  // http://api.openweathermap.org/data/2.5/weather?q=30067&appid=b1b35bba8b434a28a0be2a3e1071ae5b&units=imperial
-  // 
-  // Then, look at this object and choose which items to display: 
-  // main, description, etc. 
-
-  // Fetch icon from this url : 
-  // http://openweathermap.org/img/w/10d.png
-
   componentDidMount() {
-  	// console.log("pass zip: ", this.props.zip)
   	const { zip } = this.props; 
    	const url = `http://api.openweathermap.org/data/2.5/weather?q=${zip}&appid=b1b35bba8b434a28a0be2a3e1071ae5b&units=imperial`; 
   
@@ -39,18 +29,24 @@ class WeatherDisplay extends Component {
   }
 
   render() { 
-  	console.log(this.props); 
+  	const city = this.props.weather.payload;
+  	console.log(this.props.weather);
+  	// if (!city) return <div>Loading...</div>; 
 
-  	const { zip } = this.props;
-
-    return (
-      <div>WeatherDisplay for ZIP code {zip}</div>
-    );
+  	return (
+  		<div>
+  			Weather for {city}
+  		</div>
+  	);
   }
 }
+
+const mapStateToProps = state => ({
+	weather: state.weather,
+})
 
 const mapDispatchToProps = () => ({
 	callWeatherData,
 })
 
-export default connect(null, mapDispatchToProps())(WeatherDisplay); 
+export default connect(mapStateToProps, mapDispatchToProps())(WeatherDisplay); 

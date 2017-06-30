@@ -20,7 +20,12 @@
 // eslint-disable-next-line
 import { SELECT_PLACE } from '../actions/index'; 
 
-export default function(state = {}, action) {
+const initialState = {
+	payload: 3,
+};
+
+
+export default function(state = initialState, action) {
 	const payload = action.payload;
 	switch (action.type) {
 		case SELECT_PLACE:
