@@ -7,6 +7,7 @@
 export const SELECT_PLACE = 'SELECT_PLACE'; 
 export const CITY = 'CITY'; 
 export const DESCRIPTION = 'DESCRIPTION'; 
+export const CURRENT_TEMP = 'CURRENT_TEMP'; 
 
 export const performSelectPlace = (num) => ({
 	type: SELECT_PLACE,
@@ -21,9 +22,16 @@ export const callCity = (data) => {
 };
 
 export const callDescription = (data) => {
-	console.log(data);
 	return {
 		type: DESCRIPTION,
+		payload: data,
+	}
+};
+
+export const callCurrentTemp = (data) => {
+	console.log('data', data);
+	return {
+		type: CURRENT_TEMP,
 		payload: data,
 	}
 };
