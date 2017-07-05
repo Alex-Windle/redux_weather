@@ -14,6 +14,7 @@ import { connect } from 'react-redux';
 import { callCity } from '../actions/index';
 import { callDescription } from '../actions/index';  
 import { callCurrentTemp } from '../actions/index'; 
+import { callHighTemp } from '../actions/index'; 
 
 class WeatherDisplay extends Component {
 
@@ -28,6 +29,7 @@ class WeatherDisplay extends Component {
   			this.props.callCity(resp.name); 
         this.props.callDescription(resp.weather[0].main);
         this.props.callCurrentTemp(resp.main.temp);
+        this.props.callHighTemp(resp.main.temp_max);
   		})
   }
 
@@ -35,6 +37,7 @@ class WeatherDisplay extends Component {
   	const city = this.props.city.payload;
     const description = this.props.description.payload;
     const temp = this.props.currentTemp.payload;
+    const highTemp = this.props.highTemp.payload;
 
   	return (
   		<div>
@@ -43,7 +46,7 @@ class WeatherDisplay extends Component {
         <br /><br />
         Current: {temp}
         <br /><br />
-        High: 
+        High: {highTemp}
         <br /><br />
         Low: 
         <br /><br />
@@ -57,12 +60,14 @@ const mapStateToProps = state => ({
 	city: state.city,
   description: state.description,
   currentTemp: state.currentTemp,
+  highTemp: state.highTemp,
 })
 
 const mapDispatchToProps = () => ({
 	callCity,
   callDescription,
   callCurrentTemp,
+  callHighTemp,
 })
 
 export default connect(mapStateToProps, mapDispatchToProps())(WeatherDisplay); 

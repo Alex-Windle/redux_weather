@@ -8,6 +8,8 @@ export const SELECT_PLACE = 'SELECT_PLACE';
 export const CITY = 'CITY'; 
 export const DESCRIPTION = 'DESCRIPTION'; 
 export const CURRENT_TEMP = 'CURRENT_TEMP'; 
+export const HIGH_TEMP = 'HIGH_TEMP'; 
+
 
 export const performSelectPlace = (num) => ({
 	type: SELECT_PLACE,
@@ -36,6 +38,13 @@ export const callCurrentTemp = (data) => {
 	}
 };
 
+export const callHighTemp = (data) => {
+	console.log('data', data);
+	return {
+		type: HIGH_TEMP,
+		payload: data,
+	}
+};
 
 // Now, what's next? This action must be passed to a REDUCER. 
 // The REDUCER is necessary to update the store. 
