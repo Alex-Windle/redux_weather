@@ -7,7 +7,6 @@ const initialState = {
 
 export default function (state = initialState, action) {
 	const { payload } = action; 
-
 	switch(action.type) {
 		case CURRENT_TEMP: 
 			return {

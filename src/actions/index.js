@@ -9,6 +9,7 @@ export const CITY = 'CITY';
 export const DESCRIPTION = 'DESCRIPTION'; 
 export const CURRENT_TEMP = 'CURRENT_TEMP'; 
 export const HIGH_TEMP = 'HIGH_TEMP'; 
+export const LOW_TEMP = 'LOW_TEMP'; 
 
 
 export const performSelectPlace = (num) => ({
@@ -31,7 +32,6 @@ export const callDescription = (data) => {
 };
 
 export const callCurrentTemp = (data) => {
-	console.log('data', data);
 	return {
 		type: CURRENT_TEMP,
 		payload: data,
@@ -39,9 +39,15 @@ export const callCurrentTemp = (data) => {
 };
 
 export const callHighTemp = (data) => {
-	console.log('data', data);
 	return {
 		type: HIGH_TEMP,
+		payload: data,
+	}
+};
+
+export const callLowTemp = (data) => {
+	return {
+		type: LOW_TEMP,
 		payload: data,
 	}
 };

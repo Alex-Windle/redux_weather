@@ -3,11 +3,9 @@
 // ...and finally returns the new state to the store!
 import { HIGH_TEMP } from '../actions/index.js'; 
 
-const initialState = {highTemp: {payload: 85}}; 
+const initialState = {payload: 85}; 
 
 export default (state = initialState, action) => {
-	console.log('hightemp reducer', action);
-	console.log('initialState', state);
 	const { payload } = action; 
 	switch(action.type) {
 		case HIGH_TEMP:

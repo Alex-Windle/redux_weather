@@ -15,6 +15,7 @@ import { callCity } from '../actions/index';
 import { callDescription } from '../actions/index';  
 import { callCurrentTemp } from '../actions/index'; 
 import { callHighTemp } from '../actions/index'; 
+import { callLowTemp } from '../actions/index'; 
 
 class WeatherDisplay extends Component {
 
@@ -30,6 +31,7 @@ class WeatherDisplay extends Component {
         this.props.callDescription(resp.weather[0].main);
         this.props.callCurrentTemp(resp.main.temp);
         this.props.callHighTemp(resp.main.temp_max);
+        this.props.callLowTemp(resp.main.temp_min);
   		})
   }
 
@@ -38,6 +40,7 @@ class WeatherDisplay extends Component {
     const description = this.props.description.payload;
     const temp = this.props.currentTemp.payload;
     const highTemp = this.props.highTemp.payload;
+    const lowTemp = this.props.lowTemp.payload;
 
   	return (
   		<div>
@@ -48,7 +51,7 @@ class WeatherDisplay extends Component {
         <br /><br />
         High: {highTemp}
         <br /><br />
-        Low: 
+        Low: {lowTemp}
         <br /><br />
         Wind speed: 
   		</div>
@@ -61,6 +64,7 @@ const mapStateToProps = state => ({
   description: state.description,
   currentTemp: state.currentTemp,
   highTemp: state.highTemp,
+  lowTemp: state.lowTemp,
 })
 
 const mapDispatchToProps = () => ({
@@ -68,6 +72,7 @@ const mapDispatchToProps = () => ({
   callDescription,
   callCurrentTemp,
   callHighTemp,
+  callLowTemp,
 })
 
 export default connect(mapStateToProps, mapDispatchToProps())(WeatherDisplay); 
