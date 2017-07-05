@@ -7,12 +7,15 @@ import callTempReducer from './callTemp_reducer.js';
 import callHighTempReducer from './callHighTemp_reducer.js'; 
 import callLowTempReducer from './callLowTemp_reducer.js'; 
 import callWindSpeedReducer from './callWindSpeed_reducer.js'; 
+import callIconReducer from './callIcon_reducer.js'; 
+
 
 const rootReducer = combineReducers({
   city: cityReducer,
   currentTemp: callTempReducer,
   description: descriptionReducer,
   highTemp: callHighTempReducer,
+  icon: callIconReducer,
   lowTemp: callLowTempReducer,
   place: placeReducer,
   windSpeed: callWindSpeedReducer,

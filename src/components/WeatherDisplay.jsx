@@ -17,6 +17,7 @@ import { callCurrentTemp } from '../actions/index';
 import { callHighTemp } from '../actions/index'; 
 import { callLowTemp } from '../actions/index';
 import { callWindSpeed } from '../actions/index';
+import { callIcon } from '../actions/index'; 
 
 class WeatherDisplay extends Component {
 
@@ -34,6 +35,7 @@ class WeatherDisplay extends Component {
         this.props.callHighTemp(resp.main.temp_max);
         this.props.callLowTemp(resp.main.temp_min);
         this.props.callWindSpeed(resp.wind.speed);
+        this.props.callIcon(resp.weather[0].icon); 
   		})
   }
 
@@ -43,13 +45,14 @@ class WeatherDisplay extends Component {
     const temp = this.props.currentTemp.payload;
     const highTemp = this.props.highTemp.payload;
     const lowTemp = this.props.lowTemp.payload;
-    const windSpeed = this.props.windSpeed.payload;
+    const windSpeed = this.props.windSpeed.payload; 
+    const iconURL = `http://openweathermap.org/img/w/${this.props.icon.payload}.png`
 
   	return (
   		<div>
         <br />
-  			<h1>{description} in {city}</h1>
-        <br /><br />
+  			<h1>{description} in {city} <img src={iconURL} alt={description} /> </h1> 
+        <br />
         Current: {temp}
         <br /><br />
         High: {highTemp}
@@ -67,6 +70,7 @@ const mapStateToProps = state => ({
   description: state.description,
   currentTemp: state.currentTemp,
   highTemp: state.highTemp,
+  icon: state.icon,
   lowTemp: state.lowTemp,
   windSpeed: state.windSpeed,
 })
@@ -76,6 +80,7 @@ const mapDispatchToProps = () => ({
   callDescription,
   callCurrentTemp,
   callHighTemp,
+  callIcon,
   callLowTemp,
   callWindSpeed,
 })
