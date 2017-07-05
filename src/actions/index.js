@@ -10,6 +10,7 @@ export const DESCRIPTION = 'DESCRIPTION';
 export const CURRENT_TEMP = 'CURRENT_TEMP'; 
 export const HIGH_TEMP = 'HIGH_TEMP'; 
 export const LOW_TEMP = 'LOW_TEMP'; 
+export const WIND_SPEED = 'WIND_SPEED'; 
 
 
 export const performSelectPlace = (num) => ({
@@ -48,6 +49,13 @@ export const callHighTemp = (data) => {
 export const callLowTemp = (data) => {
 	return {
 		type: LOW_TEMP,
+		payload: data,
+	}
+};
+
+export const callWindSpeed = (data) => {
+	return {
+		type: WIND_SPEED,
 		payload: data,
 	}
 };

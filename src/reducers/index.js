@@ -6,6 +6,7 @@ import descriptionReducer from './descriptionData_reducer.js';
 import callTempReducer from './callTemp_reducer.js'; 
 import callHighTempReducer from './callHighTemp_reducer.js'; 
 import callLowTempReducer from './callLowTemp_reducer.js'; 
+import callWindSpeedReducer from './callWindSpeed_reducer.js'; 
 
 const rootReducer = combineReducers({
   city: cityReducer,
@@ -14,6 +15,7 @@ const rootReducer = combineReducers({
   highTemp: callHighTempReducer,
   lowTemp: callLowTempReducer,
   place: placeReducer,
+  windSpeed: callWindSpeedReducer,
 });
 
 export default rootReducer;
